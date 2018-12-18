@@ -5,7 +5,6 @@ import be.intecbrussel.mountainserver.service.MountainRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,7 +16,12 @@ public class MountainController {
     private MountainRepo mountainRepo;
 
     @RequestMapping("/mountain")
-    public List<Mountain> mountainsList(@RequestParam(value = "id", defaultValue = "1") @PathVariable long id) {
+    public List<Mountain> mountainsList() {
         return mountainRepo.getMountains();
+    }
+
+    @RequestMapping("/mountain/{id}")
+    public Mountain mountain(@PathVariable long id){
+        return mountainRepo.getById(id);
     }
 }

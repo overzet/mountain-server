@@ -28,9 +28,13 @@ public class MountainRepo {
 
     @PostConstruct
     public List<Mountain> init() {
-        mountains.add(new Mountain(1, "Mont Blanc", 4884));
-        mountains.add(new Mountain(2, "Mount Vesuvius", 1265));
-        mountains.add(new Mountain(3, "Mountain Bike", 2));
+        mountains.add(new Mountain(0, "Mont Blanc", 4884));
+        mountains.add(new Mountain(1, "Mount Vesuvius", 1265));
+        mountains.add(new Mountain(2, "Mountain Bike", 2));
         return mountains;
+    }
+
+    public Mountain getById(long id) {
+        return mountains.get((int) id);
     }
 }
