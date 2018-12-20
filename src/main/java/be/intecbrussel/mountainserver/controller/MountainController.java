@@ -24,4 +24,6 @@ public class MountainController {
     public Mountain mountain(@PathVariable long id){
         return mountainRepo.getById(id);
     }
+
+
 }
